@@ -28,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
   acronym,
   address,
   big,
+  button,
   cite,
   code,
   del,
