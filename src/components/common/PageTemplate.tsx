@@ -1,8 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import BgPhoto from '../../asset/BgPhoto.png';
 
-const PageTemplate = ({ children }: { children: React.ReactNode }) => {
-  return <Container>{children}</Container>;
+const PageTemplate = ({
+  children,
+  isPhoto = false,
+}: {
+  children: React.ReactNode;
+  isPhoto?: boolean;
+}) => {
+  return (
+    <Container
+      style={{
+        backgroundImage: `url(${isPhoto && BgPhoto})`,
+        objectFit: 'contain',
+      }}
+    >
+      {children}
+    </Container>
+  );
 };
 
 export default PageTemplate;
