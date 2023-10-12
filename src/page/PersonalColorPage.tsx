@@ -1,16 +1,23 @@
 import { useState, useRef } from 'react';
 import styled from 'styled-components';
+import { useSearchParams } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import PageTemplate from '../components/common/PageTemplate';
 import Button from '../components/common/Button';
-import CristalBall from '../asset/crystalBall.svg';
-import Check from '../asset/check.svg';
 import ShowPersonalColor from '../components/showPersonalColor';
+import Check from '../asset/check.svg';
+import CristalBall from '../asset/personalColor/crystalBall.svg';
+import Left from '../asset/personalColor/left.svg';
+import Right from '../asset/personalColor/right.svg';
 
 const PersonalColorPage = () => {
   const [getPersonalColor, setGetPersonalColor] = useState(false);
+  const [searchParams] = useSearchParams();
+  const count = Number(searchParams.get('count'));
 
-  const [photo, setPhoto] = useState<string>('');
+  const [index, setIndex] = useState(0);
+
+  const [photo, setPhoto] = useState<string[]>([]);
   const webcamRef = useRef<Webcam>(null);
 
   const videoConstraints = {
@@ -21,21 +28,37 @@ const PersonalColorPage = () => {
 
   const onClickCapturePhoto = () => {
     const imageSrc = webcamRef.current?.getScreenshot();
-    imageSrc && setPhoto(imageSrc);
+    imageSrc && setPhoto((prev) => [...prev, imageSrc]);
   };
 
   if (getPersonalColor) {
     return (
       <PageTemplate>
-        <Title style={{ margin: 0 }}>
+        {count > 1 && index !== 0 && (
+          <Img
+            style={{ left: '50px' }}
+            src={Left}
+            alt='Left'
+            onClick={() => setIndex((prev) => prev - 1)}
+          />
+        )}
+        <Title>
           <img src={CristalBall} alt='CristalBall' />
           진단한 <strong>결과는...</strong>
         </Title>
         <ShowPersonalColor
-          url={photo}
+          url={photo[index]}
           colorType='가을 웜톰'
           colors={['#84A7AD', '#A0B087', '#D8BC9C', '#84A7AD']}
         />
+        {count > 1 && index !== photo.length - 1 && (
+          <Img
+            style={{ right: '50px' }}
+            src={Right}
+            alt='Right'
+            onClick={() => setIndex((prev) => prev + 1)}
+          />
+        )}
       </PageTemplate>
     );
   }
@@ -49,7 +72,7 @@ const PersonalColorPage = () => {
       <Introduce>
         카메라를 향해 정면으로 선 다음, 얼굴 사진을 촬영해 주세요.
       </Introduce>
-      {photo ? (
+      {photo.length === count ? (
         <SuccessBox>
           <img src={Check} alt='Check' />
         </SuccessBox>
@@ -72,10 +95,19 @@ const PersonalColorPage = () => {
       <Button
         style={{ marginBottom: '50px' }}
         kind='dark'
-        onClick={photo ? () => setGetPersonalColor(true) : onClickCapturePhoto}
+        onClick={
+          photo.length === count
+            ? () => setGetPersonalColor(true)
+            : onClickCapturePhoto
+        }
       >
-        {photo ? '완료' : '촬영'}
+        {photo.length === count ? '완료' : '촬영'}
       </Button>
+      {count > 1 && (
+        <Count>
+          {photo.length}/{count}
+        </Count>
+      )}
     </PageTemplate>
   );
 };
@@ -103,4 +135,16 @@ const SuccessBox = styled.div`
   height: 550px;
   background-color: ${({ theme }) => theme.colors.purple[500]};
   margin: 30px 0px;
+`;
+
+const Count = styled.div`
+  position: absolute;
+  left: 30px;
+  font-size: 60px;
+  font-weight: 600;
+`;
+
+const Img = styled.img`
+  cursor: pointer;
+  position: absolute;
 `;

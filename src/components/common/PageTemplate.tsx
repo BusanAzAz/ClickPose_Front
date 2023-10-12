@@ -24,6 +24,7 @@ const PageTemplate = ({
 export default PageTemplate;
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;

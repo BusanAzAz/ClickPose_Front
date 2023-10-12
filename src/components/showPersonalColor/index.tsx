@@ -10,7 +10,7 @@ interface IShowPersonalColor {
 
 const ShowPersonalColor = ({ url, colorType, colors }: IShowPersonalColor) => {
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', marginBottom: '50px' }}>
       <Wrapper>
         <PreviewImg src={url} alt='photoImage' />
         <ColorCardContainer>
@@ -48,8 +48,8 @@ const Wrapper = styled.div`
 `;
 
 const PreviewImg = styled.img`
-  width: 700px;
-  height: 500px;
+  width: 650px;
+  height: 480px;
   border-radius: 10px;
   object-fit: cover;
 `;
@@ -58,8 +58,8 @@ const ColorCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 450px;
-  height: 500px;
+  width: 400px;
+  height: 480px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.purple[100]};
 `;
@@ -71,13 +71,13 @@ const HigilightText = styled.span`
 
 const ColorWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 140px);
-  gap: 20px;
+  grid-template-columns: repeat(2, 135px);
+  gap: 15px;
 `;
 
 const ColorCard = styled.div<{ color: string }>`
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   border-radius: 10px;
   background-color: ${({ color }) => color};
 `;
