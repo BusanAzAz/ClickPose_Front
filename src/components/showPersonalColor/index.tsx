@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 
 interface IShowPersonalColor {
@@ -26,12 +27,14 @@ const ShowPersonalColor = ({ url, colorType, colors }: IShowPersonalColor) => {
           </ColorWrapper>
         </ColorCardContainer>
       </Wrapper>
-      <Button
-        style={{ position: 'absolute', right: 0, bottom: '-40px' }}
-        kind='dark'
-      >
-        촬영하러 가기
-      </Button>
+      <Link to='/select-frame'>
+        <Button
+          style={{ position: 'absolute', right: 0, bottom: '-40px' }}
+          kind='dark'
+        >
+          촬영하러 가기
+        </Button>
+      </Link>
     </div>
   );
 };

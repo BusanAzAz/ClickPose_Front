@@ -11,7 +11,7 @@ export const SELECT_MODE = {
     secondLine: '맞춤화된 예쁜 사진을 찍어 봐요.',
   },
   more: {
-    url: '/photo',
+    url: '/select-frame',
     img: Gesture,
     person: '여러 명',
     mode: '포즈 추천',

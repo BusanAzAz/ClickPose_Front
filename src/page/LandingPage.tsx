@@ -31,7 +31,7 @@ const LandingPage = () => {
             <strong>찰칵치즈</strong>와 함께 더 예쁜 사진을 찍어 봐요!
           </DescriptionBody>
           <ButtonWrapper>
-            <Link to='/select'>
+            <Link to='/select-mode'>
               <Button kind='dark'>사용하러 가기</Button>
             </Link>
           </ButtonWrapper>
