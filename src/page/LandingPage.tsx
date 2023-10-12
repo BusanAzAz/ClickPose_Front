@@ -16,15 +16,15 @@ const LandingPage = () => {
             <img src={Face} alt='Face' /> 찰칵, 치즈!
           </DescriptionTitle>
           <DescriptionBody>
-            우리는 모두 각자에게 어울리는 <strong>퍼스널 컬러</strong>가 있어요.{' '}
+            우리는 모두 각자에게 어울리는 <strong>퍼스널 컬러</strong>가 있어요.
             <br />
-            배경 색에 따라 나를 화사하고 생기있게 보여 주기도 하고,
+            나를 화사하고 생기있게 보여 주는 색이 있는 반면,
             <br />
-            그 반대가 되기도 해요.
+            그 반대가 되는 색도 있어요.
             <br />
             <br />
-            <strong>찰칵치즈</strong>는 얼굴 사진 <strong>‘찰칵’</strong> 한
-            번으로 퍼스널 컬러를 진단하고,
+            <strong>찰칵치즈</strong>는 얼굴 사진 <strong>‘찰칵’</strong> 찍어
+            퍼스널 컬러를 진단하고,
             <br />
             포토 부스의 배경을 퍼스널 컬러에 맞게 변경해요.
             <br />
