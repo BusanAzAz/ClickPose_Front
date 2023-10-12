@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Logo from '../asset/logo.svg';
 import Face from '../asset/face.svg';
-import Button from '../components/button';
+import Button from '../components/common/Button';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
@@ -30,7 +31,9 @@ const LandingPage = () => {
             <strong>찰칵치즈</strong>와 함께 더 예쁜 사진을 찍어 봐요!
           </DescriptionBody>
           <ButtonWrapper>
-            <Button kind='dark'>사용하러 가기</Button>
+            <Link to='/select'>
+              <Button kind='dark'>사용하러 가기</Button>
+            </Link>
           </ButtonWrapper>
         </DescriptionWrapper>
       </Conainer>
