@@ -20,7 +20,7 @@ const Wrapper = styled.button<{ kind: string }>`
   cursor: pointer;
   border-radius: 20px;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 400;
   color: ${({ kind, theme }) =>
     kind === 'light' ? theme.colors.purple[800] : theme.colors.gray[100]};
   background-color: ${({ kind, theme }) =>
