@@ -14,7 +14,6 @@ const SelectModeCard = ({ mode, marginTop }: ISelectModeCardProps) => {
         <img src={SELECT_MODE[mode].img} />
         <DIV>
           <CardTitle>
-            <strong>{SELECT_MODE[mode].person}</strong>이에요,
             <strong>{SELECT_MODE[mode].mode}</strong> 모드
           </CardTitle>
           <CardInfo>

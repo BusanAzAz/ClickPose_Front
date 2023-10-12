@@ -6,7 +6,7 @@ const SelectModePage = () => {
   return (
     <PageTemplate>
       <Title>
-        <strong>인원 수에 맞는 모드</strong>를 선택해 주세요.
+        <strong>촬영 모드</strong>를 선택해 주세요.
       </Title>
       <SelectModeCard marginTop={'100px'} mode={'one'} />
       <SelectModeCard marginTop={'48px'} mode={'more'} />
