@@ -9,22 +9,26 @@ import Check from '../asset/check.svg';
 import CristalBall from '../asset/personalColor/crystalBall.svg';
 import Left from '../asset/personalColor/left.svg';
 import Right from '../asset/personalColor/right.svg';
+import { PostImage } from '../api/imgae';
+import { PERSONALCOLOR } from '../constant/personal';
 
 const PersonalColorPage = () => {
   const [getPersonalColor, setGetPersonalColor] = useState(false);
   const [searchParams] = useSearchParams();
   const count = Number(searchParams.get('count'));
-
   const [index, setIndex] = useState(0);
-
   const [photo, setPhoto] = useState<string[]>([]);
   const webcamRef = useRef<Webcam>(null);
+
+  const { mutate } = PostImage();
 
   const videoConstraints = {
     width: 950,
     height: 550,
     facingMode: 'user',
   };
+
+  const getRandom = Math.floor(Math.random() * 3);
 
   const onClickCapturePhoto = () => {
     const imageSrc = webcamRef.current?.getScreenshot();
@@ -47,9 +51,9 @@ const PersonalColorPage = () => {
           진단한 <strong>결과는...</strong>
         </Title>
         <ShowPersonalColor
-          url={photo[index]}
-          colorType='가을 웜톰'
-          colors={['#84A7AD', '#A0B087', '#D8BC9C', '#84A7AD']}
+          url={photo[index] as string}
+          colorType={PERSONALCOLOR[getRandom].title}
+          colors={PERSONALCOLOR[getRandom].color}
         />
         {count > 1 && index !== photo.length - 1 && (
           <Img
