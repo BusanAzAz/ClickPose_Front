@@ -5,6 +5,7 @@ import TakePhotoPage from './page/TakePhotoPage';
 import PersonalColorPage from './page/PersonalColorPage';
 import SelectFramePage from './page/SelectFramePage';
 import FinalPage from './page/FinalPage';
+import SelectPersonPage from './page/SelectPersonPage';
 
 const Router = () => {
   return (
@@ -12,6 +13,7 @@ const Router = () => {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/select-mode' element={<SelectModePage />} />
+        <Route path='/select-person' element={<SelectPersonPage />} />
         <Route path='/personal' element={<PersonalColorPage />} />
         <Route path='/photo' element={<TakePhotoPage />} />
         <Route path='/select-frame' element={<SelectFramePage />} />
