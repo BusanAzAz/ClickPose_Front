@@ -39,6 +39,7 @@ const PersonalColorPage = () => {
   const onClick = () => {
     setGetPersonalColor(true);
     setPersonal(PERSONALCOLOR[getRandom].color as any);
+    mutate(photo)
   };
 
   if (getPersonalColor) {

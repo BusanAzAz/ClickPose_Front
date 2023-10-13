@@ -1,6 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import axios, { AxiosError, isAxiosError } from 'axios';
-import test from '../asset/eeeeee.png';
+import axios from 'axios';
 
 export const PostImage = () => {
   const URL = 'http://192.168.7.132:8000/api/image';
@@ -18,17 +17,5 @@ export const PostImage = () => {
       },
     });
   };
-  return useMutation(response, {
-    onError: (e: AxiosError) => {
-      if (isAxiosError(e)) {
-        alert(e.response?.data);
-        console.log(e.response?.data);
-      } else {
-        alert(e);
-      }
-    },
-    onSuccess: (e) => {
-      alert(e);
-    },
-  });
+  return useMutation(response);
 };
