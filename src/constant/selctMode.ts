@@ -10,7 +10,7 @@ export const SELECT_MODE = {
     secondLine: '더 화사하고 밝은 사진을 찍어 봐요!',
   },
   more: {
-    url: '/select-frame',
+    url: '/category',
     img: Balloon,
     mode: '오늘의 분위기',
     firstLine: '‘심플한’, ‘귀여운’ 등 오늘의 분위기에 맞는',
