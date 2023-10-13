@@ -26,7 +26,7 @@ const Photos = ({ frame, photos, background }: IPhotosProps) => {
   if (background) {
     return (
       <DIV style={{ backgroundColor: background }}>
-        <Back frame={frame === 2}>
+        <Back frame={frame}>
           {photos.map((item) => (
             <Img
               src={item}
@@ -65,11 +65,11 @@ const DIV = styled.div`
   height: 700px;
 `;
 
-const Back = styled.div<{ frame: boolean }>`
+const Back = styled.div<{ frame: number }>`
   position: relative;
-  top: 150px;
+  top: ${({ frame }) => (frame === 6 ? '0px' : '150px')};
   display: grid;
-  grid-template-columns: ${({ frame }) => (frame ? '1fr' : '1fr 1fr')};
+  grid-template-columns: ${({ frame }) => (frame === 2 ? '1fr' : '1fr 1fr')};
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
 `;
@@ -87,4 +87,12 @@ const Img = styled.img<{ width: number; height: number }>`
   width: ${({ width }) => width}px;
   height: ${({ height }) => height}px;
   object-fit: cover;
+`;
+
+const Title = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 45px;
+  font-weight: 600;
 `;

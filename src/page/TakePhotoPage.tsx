@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import PageTemplate from '../components/common/PageTemplate';
 import Cheese from '../asset/cheese.svg';
 import Webcam from 'react-webcam';
@@ -13,7 +13,6 @@ import Check from '../asset/check.svg';
 const TakePhotoPage = () => {
   const [a, setA] = useState(false);
   const { image, setImage } = getImage();
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const frame = Number(searchParams.get('frame'));
   let getRandom = 0;
@@ -39,9 +38,6 @@ const TakePhotoPage = () => {
   if (personal) {
     return (
       <PageTemplate>
-        <Title>
-          <img src={Palat} alt='Palat' /> 사진이 완성되었습니다!
-        </Title>
         <Photos frame={Number(frame)} photos={image} background={personal} />
       </PageTemplate>
     );

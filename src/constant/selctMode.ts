@@ -12,8 +12,8 @@ export const SELECT_MODE = {
   more: {
     url: '/select-frame',
     img: Balloon,
-    mode: '테마 배경',
-    firstLine: '놀이 공원, 해리포터 마법 학교 등...',
-    secondLine: '원하는 테마 안으로 들어가 다이나믹한 사진을 찍어 봐요!',
+    mode: '오늘의 분위기',
+    firstLine: '‘심플한’, ‘귀여운’ 등 오늘의 분위기에 맞는',
+    secondLine: '배경 색상을 추천해 줄게요!',
   },
 };
