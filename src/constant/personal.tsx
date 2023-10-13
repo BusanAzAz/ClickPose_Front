@@ -1,9 +1,22 @@
 import { useState } from 'react';
 
-export const asdf = () => {
-  const [personal, setPersonal] = useState();
+export const getPersonal = () => {
+  const [personal, setPersonal] = useState([]);
   return { personal, setPersonal };
 };
+export const getImage = () => {
+  const [image, setImage] = useState([]);
+  return { image, setImage };
+};
+
+export const getFrame = () => {
+  const [frame, setFrame] = useState(0);
+  return { frame, setFrame };
+};
+
+export const random = () => {
+  return Math.floor(Math.random() * 3);
+}
 
 export const PERSONALCOLOR = [
   { title: '봄 웜톰', color: ['#FFEDCF', '#FBDBC4', '#F8A980', '#90D7EB'] },

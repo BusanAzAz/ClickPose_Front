@@ -8,9 +8,11 @@ import SixFrame from '../asset/frameType/six.svg';
 import CheckFrame from '../asset/frameType/CheckFrame';
 import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';
+import { getFrame } from '../constant/personal';
 
 const SelectFramePage = () => {
   const [checkedFrame, setCheckedFrame] = useState(0);
+  const { setFrame } = getFrame();
   return (
     <PageTemplate>
       <Title style={{ fontSize: '56px' }}>
@@ -24,7 +26,9 @@ const SelectFramePage = () => {
           <Card
             src={TwoFrame}
             alt='TwoFrame'
-            onClick={() => setCheckedFrame(2)}
+            onClick={() => {
+              setCheckedFrame(2), setFrame(2);
+            }}
           />
         )}
         {checkedFrame === 4 ? (
@@ -33,7 +37,9 @@ const SelectFramePage = () => {
           <Card
             src={FourFrame}
             alt='FourFrame'
-            onClick={() => setCheckedFrame(4)}
+            onClick={() => {
+              setCheckedFrame(4), setFrame(4);
+            }}
           />
         )}
         {checkedFrame === 6 ? (
@@ -42,7 +48,9 @@ const SelectFramePage = () => {
           <Card
             src={SixFrame}
             alt='SixFrame'
-            onClick={() => setCheckedFrame(6)}
+            onClick={() => {
+              setCheckedFrame(6), setFrame(6);
+            }}
           />
         )}
       </CardWrppaer>

@@ -10,7 +10,7 @@ import CristalBall from '../asset/personalColor/crystalBall.svg';
 import Left from '../asset/personalColor/left.svg';
 import Right from '../asset/personalColor/right.svg';
 import { PostImage } from '../api/imgae';
-import { PERSONALCOLOR } from '../constant/personal';
+import { PERSONALCOLOR, getPersonal, random } from '../constant/personal';
 
 const PersonalColorPage = () => {
   const [getPersonalColor, setGetPersonalColor] = useState(false);
@@ -19,6 +19,7 @@ const PersonalColorPage = () => {
   const [index, setIndex] = useState(0);
   const [photo, setPhoto] = useState<string[]>([]);
   const webcamRef = useRef<Webcam>(null);
+  const { setPersonal } = getPersonal();
 
   const { mutate } = PostImage();
 
@@ -28,11 +29,16 @@ const PersonalColorPage = () => {
     facingMode: 'user',
   };
 
-  const getRandom = Math.floor(Math.random() * 3);
+  const getRandom = random();
 
   const onClickCapturePhoto = () => {
     const imageSrc = webcamRef.current?.getScreenshot();
     imageSrc && setPhoto((prev) => [...prev, imageSrc]);
+  };
+
+  const onClick = () => {
+    setGetPersonalColor(true);
+    setPersonal(PERSONALCOLOR[getRandom].color as any);
   };
 
   if (getPersonalColor) {
@@ -99,11 +105,7 @@ const PersonalColorPage = () => {
       <Button
         style={{ marginBottom: '50px' }}
         kind='dark'
-        onClick={
-          photo.length === count
-            ? () => setGetPersonalColor(true)
-            : onClickCapturePhoto
-        }
+        onClick={photo.length === count ? onClick : onClickCapturePhoto}
       >
         {photo.length === count ? '완료' : '촬영'}
       </Button>

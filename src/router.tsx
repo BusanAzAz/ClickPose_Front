@@ -12,10 +12,10 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/select-mode' element={<SelectModePage />} />
-        <Route path='/select-person' element={<SelectPersonPage />} />
-        <Route path='/personal' element={<PersonalColorPage />} />
-        <Route path='/photo' element={<TakePhotoPage />} />
+      <Route path='/select-mode' element={<SelectModePage />} />
+      <Route path='/select-person' element={<SelectPersonPage />} />
+      <Route path='/personal' element={<PersonalColorPage />} />
+      <Route path='/photo' element={<TakePhotoPage />} />
         <Route path='/select-frame' element={<SelectFramePage />} />
         <Route path='/final' element={<FinalPage />} />
       </Routes>
