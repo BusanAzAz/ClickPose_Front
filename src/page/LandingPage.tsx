@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from '../asset/logo.svg';
+import Logo from '../asset/asdf.svg';
 import Face from '../asset/face.svg';
 import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';
