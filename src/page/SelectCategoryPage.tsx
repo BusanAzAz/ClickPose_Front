@@ -1,22 +1,11 @@
 import styled from 'styled-components';
-import { useState, useRef } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 import PageTemplate from '../components/common/PageTemplate';
 import ThinkCloud from '../asset/think-cloud.svg';
-import Webcam from 'react-webcam';
-import Photos from '../components/takePhoto/Photos';
-import Button from '../components/common/Button';
 import Tag from '../components/selectTag/Tag';
-import CategoryDummy from '../mocks/CategoryDummy';
 import { Link } from 'react-router-dom';
+import { CategoryDummy } from '../constant/type';
 
 const SelectCategoryPage = () => {
-  const [photos, setPhotos] = useState<string[]>([]);
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const frame = Number(searchParams.get('frame'));
-
-
   return (
     <PageTemplate>
       <Title>
@@ -25,12 +14,12 @@ const SelectCategoryPage = () => {
       </Title>
       <DIV>
         <CategoryBox>
-          {CategoryDummy.map((category) => 
+          {CategoryDummy.map((category) => (
             <Link to='/select-frame'>
-                <Tag key={category.id} item={category.title}/>
+              <Tag key={category.id} item={category.title} />
             </Link>
-          )}
-          </CategoryBox>
+          ))}
+        </CategoryBox>
       </DIV>
     </PageTemplate>
   );
@@ -53,11 +42,10 @@ const DIV = styled.div`
   margin: 50px 0px;
 `;
 
-
 const CategoryBox = styled.div`
-    display: flex;
-    width: fit-content;    
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 34px;
-`
+  display: flex;
+  width: fit-content;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 34px;
+`;
